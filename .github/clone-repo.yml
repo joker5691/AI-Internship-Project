@@ -1,1 +1,21 @@
+name: Clone Repository
+
+on: [push]
+
+jobs:
+  clone:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout this repository
+      uses: actions/checkout@v2
+      with:
+        repository: joker5691/AI-Internship-Project
+        ref: main
+    - name: Clone the repository
+      run: |
+        git clone https://github.com/joker5691/Fundamental.git
+        cd original-repo
+        git remote remove origin
+        git remote add origin https://github.com/your-username/your-repo.git
+        git push -u origin main
 
